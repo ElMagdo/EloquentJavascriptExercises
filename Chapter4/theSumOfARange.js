@@ -7,6 +7,8 @@ function range(start, end, step = 1) {
         start += step;
         }
     } else {
+        if (step == 1) step = -1;
+
         while(start >= end) {
         arr.push(start);
         start += step;
@@ -22,6 +24,15 @@ function sum(arr) {
     return sm;
 }
 
-console.log(sum(range(1, 10)));
+console.log("sum = " + sum(range(1, 10)) + "\n");
+
+console.log("Array without positive step");
+console.log(range(1, 10));
+console.log("\n");
+
 console.log(range(1, 10, 2));
 console.log(range(5, 2, -1));
+console.log("\n");
+
+console.log("Array without positive step");
+console.log(range(5, 2));
