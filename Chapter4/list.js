@@ -18,15 +18,31 @@ var lst = arrayToList([2, 3, 4, 5]);
 console.log(listToArray(lst));
 
 function prepend(num, list) {
-    var list1 = list;
-    for (let node = list; node; node = node.rest) {
-        list1 = {value: node.value, rest: node.list1}
-    }
-    list1.rest = {value: num, rest: null};
+    var list1 = {value: num, rest: list};
     return list1;
 }
-console.log(prepend(6, lst));
+console.log(prepend(1, lst));
 
-function nth() {}
+function nth(list, pos) {
+    var i = 0;
+    for (let node = list; node; node = node.rest) {
+        if (i == pos) {
+            return node.value;
+        }
+        i++;
+    }
+    return undefined;
+}
+console.log(nth(lst, 1));
+console.log(nthRecursive(lst, 6));
 
-function nthRecursive() {}
+function nthRecursive(list, pos) {
+    if (pos == 0) {
+        return list.value;
+    }
+    if (list == null) return undefined;
+
+    return nthRecursive(list.rest, pos-1);
+}
+console.log(nthRecursive(lst, 3));
+console.log(nthRecursive(lst, 5));
