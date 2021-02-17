@@ -1,3 +1,15 @@
+function countBs(str) {
+    var c = 0;
+
+    for (let i of str) {
+        if (i == 'B') c++;
+    }
+
+    return c;
+}
+
+console.log(countBs("BBC"));
+
 function countChar(str, ch) {
     var i = 0, count = 0;
 
@@ -9,4 +21,4 @@ function countChar(str, ch) {
     return count;
 }
 
-console.log(countChar("God programmed the world in ja..!!", 'o'));
+console.log(countChar("kakkerlak", 'k'));
