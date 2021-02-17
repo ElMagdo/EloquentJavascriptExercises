@@ -8,6 +8,7 @@ function reverseArray(arr) {
     return num;
 }
 console.log(reverseArray([1, 2, 3, 4, 5]));
+console.log(reverseArray(["A", "B", "C"]));
 
 function reverseArrayInPlace(arr) {
     let i = 0;
@@ -31,7 +32,9 @@ function reverseArrayInPlace(arr) {
         //k--;
     }*/
 
-    return arr;
+    //return arr;
 }
-console.log(reverseArrayInPlace([1, 2, 3, 4, 5]));
-console.log(reverseArrayInPlace([1, 2, 3, 4, 5, 6]));
+
+let arr = [1, 2, 3, 4, 5];
+reverseArrayInPlace(arr);
+console.log(arr);
