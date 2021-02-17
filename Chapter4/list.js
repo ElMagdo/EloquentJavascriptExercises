@@ -5,7 +5,7 @@ function arrayToList(arr) {
     }
     return list;
 }
-console.log(arrayToList([1, 2, 3]));
+console.log(arrayToList([10, 20]));
 
 function listToArray(list) {
     var arr = [];
@@ -14,14 +14,13 @@ function listToArray(list) {
     }
     return arr;
 }
-var lst = arrayToList([2, 3, 4, 5]);
-console.log(listToArray(lst));
+console.log(listToArray(arrayToList([10, 20, 30])));
 
 function prepend(num, list) {
     var list1 = {value: num, rest: list};
     return list1;
 }
-console.log(prepend(1, lst));
+console.log(prepend(10, prepend(20, null)));
 
 function nth(list, pos) {
     var i = 0;
@@ -33,8 +32,8 @@ function nth(list, pos) {
     }
     return undefined;
 }
-console.log(nth(lst, 1));
-console.log(nthRecursive(lst, 6));
+console.log(nth(arrayToList([10, 20, 30]), 1));
+console.log(nth(arrayToList([10, 20, 30]), 3));
 
 function nthRecursive(list, pos) {
     if (pos == 0) {
@@ -44,5 +43,4 @@ function nthRecursive(list, pos) {
 
     return nthRecursive(list.rest, pos-1);
 }
-console.log(nthRecursive(lst, 3));
-console.log(nthRecursive(lst, 5));
+console.log(nthRecursive(arrayToList([10, 20, 30]), 1));
