@@ -6,5 +6,4 @@ function loop(val, test, body, update) {
     }
 }
 
-let num = [];
 loop(5, (a, d) => a < d, console.log, c => c+1);
