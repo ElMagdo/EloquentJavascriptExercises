@@ -1,24 +1,23 @@
 # Looping a triangle
-====================
-Write a loop that makes seven calls to console.log to output the following
-triangle:  return
 
-`#`
-`##`
-`###`
-`####`
-`#####`
-`######`
-`#######`  
+Write a loop that makes seven calls to `console.log` to output the following
+triangle:  
+
+*#*  
+*##*  
+*###*  
+*####*  
+*#####*  
+*######*  
+*#######*  
 
 It may be useful to know that you can find the length of a string by writing
-.length after it.
-let abc = "abc";
-console.log(abc.length);
-// → 3  
+`.length` after it.  
+`let abc = "abc";`  
+`console.log(abc.length);`  
+`// → 3`  
 
 # FizzBuzz
-==========
 
 Write a program that uses console.log to print all the numbers from 1 to 100,
 with two exceptions. For numbers divisible by 3, print "Fizz" instead of the
