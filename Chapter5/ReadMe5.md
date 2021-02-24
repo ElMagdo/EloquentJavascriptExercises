@@ -15,14 +15,16 @@ starts from the beginning.
 When defining the function, you can use a regular loop to do the actual
 looping.  
 
-Everything
-Analogous to the some method, arrays also have an every method. This one
-returns true when the given function returns true for every element in the array.
-In a way, some is a version of the || operator that acts on arrays, and every is
-like the && operator.
+# Everything
+
+Analogous to the `some` method, arrays also have an `every` method. This one
+**returns true** when the given function **returns true for every element** in the array.
+In a way, `some` is a version of the `||` operator that acts on arrays, and every is
+like the `&&` operator.  
 Implement every as a function that takes an array and a predicate function
-as parameters. Write two versions, one using a loop and one using the some
-method.
+as parameters. Write two versions, one using **a loop** and one using **the some
+method.**  
+
 Dominant writing direction
 Write a function that computes the dominant writing direction in a string of
 text. Remember that each script object has a direction property that can be
