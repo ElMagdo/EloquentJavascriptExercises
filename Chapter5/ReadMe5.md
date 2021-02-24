@@ -1,7 +1,9 @@
-Flattening
-Use the reduce method in combination with the concat method to “flatten”
+# Flattening
+
+Use the `reduce` method in combination with the `concat` method to “flatten”
 an array of arrays into a single array that has all the elements of the original
-arrays.
+arrays.  
+
 Your own loop
 Write a higher-order function loop that provides something like a for loop
 statement. It takes a value, a test function, an update function, and a body
