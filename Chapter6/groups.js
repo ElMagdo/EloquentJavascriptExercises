@@ -1,36 +1,43 @@
-/*class Group {
-    arr = [];
+class Group {
 
     constructor() {
-        return {arr};//i==null ? arr : i;
+        this.member = [];
     }
 
     add(val) {
-        arr.push(val);
-        return this.arr;
+        if (this.member.indexOf(val) == -1) this.member.push(val);
     }
 
-    delete() {}
+    delete(val) {
+        this.member = this.member.filter(i => i != val);
+    }
 
-    has() {}
+    has(val) {
+        return this.member.includes(val);
+    }
 
-    static from() {}
+    static from(arr) {
+        let a = new Group();
+        for (let i of arr) a.member.push(i);
+        return a;
+    }
 }
 
-let g1 = new Group([1, 2, 3]);
+
+let g1 = Group.from([1, 10]);
 
 console.log(g1);
 
-g1.add(40);
-g1.add(30);
+console.log(g1.has(10)); //-> true
 
-console.log(g1);*/
+console.log(g1.has(30)); //-> false
 
-let arr = new Set();
-console.log(arr);
+g1.add(10);
 
-arr.add(40).add(30);
-console.log(arr);
+console.log(g1);
 
-arr.add([1, 2, 3]);
-console.log(arr);
+g1.delete(10);
+
+console.log(g1);
+
+console.log(g1.has(10)); //-> false
