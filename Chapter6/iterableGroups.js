@@ -26,13 +26,14 @@ class Group {
 class GroupIterator {
     constructor(group) {
         this.i = 0;
-        this.member = group;
+        this.member = []; //group.member;
+        for (let k of group.member) this.member.push(k);
     }
 
     next() {
         if (this.i = this.member.length - 1) return {done: true};
 
-        let value = {value: this.member.at(i)};
+        let value = {value: this.member[i]};
         this.i++;
 
         return {value, done: false};
