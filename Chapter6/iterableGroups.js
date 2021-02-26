@@ -21,28 +21,31 @@ class Group {
         for (let i of arr) a.member.push(i);
         return a;
     }
+
+    [Symbol.iterator]() {
+    return new GroupIterator(this);
+  }
 }
 
 class GroupIterator {
     constructor(group) {
         this.i = 0;
-        this.member = []; //group.member;
-        for (let k of group.member) this.member.push(k);
+        this.group = group;
     }
 
     next() {
-        if (this.i = this.member.length - 1) return {done: true};
+        if (this.i >= this.group.member.length) return {done: true};
 
-        let value = {value: this.member[i]};
+        let val = {value: this.group.member[this.i]};
         this.i++;
 
-        return {value, done: false};
+        return {val, done: false};
     }
 }
 
-Group.prototype[Symbol.iterator] = function() {
+/*Group[Symbol.iterator] = function() {
     return new GroupIterator(this);
-}
+}*/
 
 for (let value of Group.from(["a", "b", "c"])) {
     console.log(value);
