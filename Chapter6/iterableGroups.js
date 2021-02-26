@@ -21,10 +21,6 @@ class Group {
         for (let i of arr) a.member.push(i);
         return a;
     }
-
-    [Symbol.iterator]() {
-    return new GroupIterator(this);
-  }
 }
 
 class GroupIterator {
@@ -34,18 +30,18 @@ class GroupIterator {
     }
 
     next() {
-        if (this.i >= this.group.member.length) return {done: true};
+        if (this.i == this.group.member.length) return {done: true};
 
-        let val = {value: this.group.member[this.i]};
+        let val = {value: this.group.member[this.i], done: false};
         this.i++;
 
-        return {val, done: false};
+        return val;
     }
 }
 
-/*Group[Symbol.iterator] = function() {
+Group.prototype[Symbol.iterator] = function() {
     return new GroupIterator(this);
-}*/
+}
 
 for (let value of Group.from(["a", "b", "c"])) {
     console.log(value);
