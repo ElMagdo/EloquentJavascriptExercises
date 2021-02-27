@@ -31,7 +31,9 @@ addEdge(to, from);
 }
 return graph;
 }
+
 const roadGraph = buildGraph(roads);
+//console.log(roadGraph);
 
 class VillageState {
 constructor(place, parcels) {
@@ -88,16 +90,11 @@ return {direction: memory[0], memory: memory.slice(1)};
 
 function runRobot(state, robot, memory) {
     for (let turn = 0;; turn++) {
-        if (state.parcels.length == 0) {
-            //console.log(`Done in ${turn} turns`);
-            //break;
-            return turn;
-        }
-        
+        if (state.parcels.length == 0) return turn;
+
         let action = robot(state, memory);
         state = state.move(action.direction);
         memory = action.memory;
-        //console.log(`Moved to ${action.direction}`);
     }
 }
 
@@ -126,8 +123,25 @@ route = findRoute(roadGraph, place, parcel.address);
 return {direction: route[0], memory: route.slice(1)};
 }
 
-//runRobot(VillageState.random(), randomRobot);
-//runRobot(VillageState.random(), routeRobot, []);
-//runRobot(VillageState.random(), goalOrientedRobot, []);
+function compareRobots(r1, m1, r2, m2) {
+  let t1 = 0, t2 = 0;
+  for (let i = 0; i < 100; i++) {
+    let task = VillageState.random();
+    t1 += runRobot(task, r1, m1);
+    t2 += runRobot(task, r2, m2);
+  }
+  console.log(`Robot 1 needed ${t1 / 100} steps per task`);
+  console.log(`Robot 2 needed ${t2 / 100} steps per task`);
+}
 
-function compareRobots(r1, m1, r2, m2) {}
+console.log("Comparing routeRobot and goalOrientedRobot:");
+compareRobots(routeRobot, [], goalOrientedRobot, []);
+
+console.log("\nComparing randomRobot and goalOrientedRobot:");
+compareRobots(randomRobot, [], goalOrientedRobot, []);
+
+console.log("\nComparing routeRobot and randomRobot:");
+compareRobots(routeRobot, [], randomRobot, []);
+
+console.log("\nComparing 2 routeRobots:");
+compareRobots(routeRobot, [], routeRobot, []);
