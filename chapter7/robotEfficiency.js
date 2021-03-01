@@ -35,3 +35,5 @@ function buildGraph(edges) {
 function optimalBot({place, parcels}, route) {
   return ({direction: route[0], memory: route.slice(1)});
 }
+
+const roadGraph = buildGraph(roads);
