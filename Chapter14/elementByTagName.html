@@ -7,13 +7,24 @@
 <script>
   function byTagName(node, tagName) {
     // Your code here.
+    let arr = [];
+    tagName = tagName.toUpperCase();
+
+    function check(elt) {
+        for (let i = 0; i < elt.children.length; i++) {
+            if (elt.children[i].nodeName == tagName) arr.push(elt.children[i]);
+            check(elt.children[i]);
+        }
+    }
+
+    check(node);
+    return arr;
   }
 
   console.log(byTagName(document.body, "h1").length);
-  // → 1
+  
   console.log(byTagName(document.body, "span").length);
-  // → 3
+  
   let para = document.querySelector("p");
   console.log(byTagName(para, "span").length);
-  // → 2
 </script>
