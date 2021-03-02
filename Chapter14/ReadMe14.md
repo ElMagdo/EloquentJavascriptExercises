@@ -26,4 +26,13 @@ by taking the property names of the first object in the data.
 Add the resulting table to the element with an `id` attribute of "`mountains`"
 so that it becomes visible in the document.  
 Once you have this working, right-align cells that contain number values by
-setting their `style.textAlign` property to "`right`" .
+setting their `style.textAlign` property to "`right`".  
+
+Elements by tag name
+The document.getElementsByTagName method returns all child elements with a
+given tag name. Implement your own version of this as a function that takes a
+node and a string (the tag name) as arguments and returns an array containing
+all descendant element nodes with the given tag name.
+To find the tag name of an element, use its nodeName property. But note
+that this will return the tag name in all uppercase. Use the toLowerCase or
+toUpperCase string methods to compensate for this.
