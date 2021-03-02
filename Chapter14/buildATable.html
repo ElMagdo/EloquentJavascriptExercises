@@ -16,4 +16,31 @@
   ];
 
   // Your code here
+  function createTable(table) {
+      let tb = document.createElement("table");
+
+      let keysArray = Object.keys(table[0]);
+      let fr = document.createElement("tr");
+      for (let i = 0; i < keysArray.length; i++) {
+        let th = document.createElement("th");
+        th.appendChild(document.createTextNode(keysArray[i]));
+        fr.appendChild(th);
+      }
+        tb.appendChild(fr);
+        
+        for (let i = 0; i < table.length; i++) {
+          let nr = document.createElement("tr");
+          for (let data of keysArray) {
+            let td = document.createElement("td");
+            td.appendChild(document.createTextNode(table[i][data]));
+            if (typeof table[i][data] == "number") td.style.textAlign = "right";
+            nr.appendChild(td);
+          }
+          tb.appendChild(nr);
+        }
+    return tb;
+  }
+
+  let elt = document.getElementById("mountains");
+  elt .appendChild(createTable(MOUNTAINS));
 </script>
