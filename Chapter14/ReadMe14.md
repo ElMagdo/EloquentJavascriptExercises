@@ -1,4 +1,4 @@
-# Build a table
+# Build a table  
 
 An HTML table is built with the following tag structure:  
 
@@ -28,11 +28,11 @@ so that it becomes visible in the document.
 Once you have this working, right-align cells that contain number values by
 setting their `style.textAlign` property to "`right`".  
 
-Elements by tag name
-The document.getElementsByTagName method returns all child elements with a
+# Elements by tag name  
+The `document.getElementsByTagName` method returns all child elements with a
 given tag name. Implement your own version of this as a function that takes a
-node and a string (the tag name) as arguments and returns an array containing
-all descendant element nodes with the given tag name.
-To find the tag name of an element, use its nodeName property. But note
+`node` and a `string`(the tag name) as arguments and **returns an array** containing
+all descendant element nodes with the given tag name.  
+To find the tag name of an element, use its `nodeName` property. But note
 that this will return the tag name in all uppercase. Use the toLowerCase or
-toUpperCase string methods to compensate for this.
+toUpperCase string methods to compensate for this.  
