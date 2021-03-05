@@ -7,21 +7,23 @@
   let p = document.querySelector("p");
   let i = 0;
   p.style.fontSize = "10px";
-  window.addEventListener("keydown", event => {
+
+  function blow(event) {
+      if (i > 300) {
+          p.textContent = "💥"
+          window.removeEventListener("keydown", blow);
+      }
+
       if (event.key == "ArrowUp") {
           i += 10;
           p.style.fontSize = i + "px";
-
-          if (i > 50) {
-            p.textContent = "💥";
-            window.removeEventListener("keydown", event);
-          }
       }
-      if (event.key == "ArrowDown") {
+
+      if (event.key == "ArrowDown" && i >= 20) {
           i -= 10;
           p.style.fontSize = i + "px";
       }
-      
       event.preventDefault();
-  })
+  }
+  window.addEventListener("keydown", blow);
 </script>
