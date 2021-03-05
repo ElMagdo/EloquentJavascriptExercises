@@ -4,4 +4,24 @@
 
 <script>
   // Your code here
+  let p = document.querySelector("p");
+  let i = 0;
+  p.style.fontSize = "10px";
+  window.addEventListener("keydown", event => {
+      if (event.key == "ArrowUp") {
+          i += 10;
+          p.style.fontSize = i + "px";
+
+          if (i > 50) {
+            p.textContent = "💥";
+            window.removeEventListener("keydown", event);
+          }
+      }
+      if (event.key == "ArrowDown") {
+          i -= 10;
+          p.style.fontSize = i + "px";
+      }
+      
+      event.preventDefault();
+  })
 </script>
