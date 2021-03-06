@@ -8,6 +8,13 @@
 <script>
   function asTabs(node) {
     // Your code here.
+    let btn = [];
+    let sz = node.children.length;
+    for (let i = 0; i < sz; i++) {
+      btn.push(document.createElement("button"));
+      btn[i].textContent = node.children[i].getAttribute("data-tabname");
+      node.insertBefore(btn[i], node.children[0]);
+    }
   }
   asTabs(document.querySelector("tab-panel"));
 </script>
