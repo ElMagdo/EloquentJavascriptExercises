@@ -14,4 +14,16 @@
 
 <script>
   // Your code here.
+  let div = [], i = 0, sz = 100;
+  for (i = 0; i < sz; i++) {
+      div.push(document.createElement("div"));
+      div[i].className = "trail";
+  }
+
+  window.addEventListener("mousemove", event => {
+      document.body.appendChild(div[i%sz]);
+      div[i%sz].style.left = (event.pageX - 4) + "px";
+      div[i%sz].style.top = (event.pageY - 4) + "px";
+      i++;
+  })
 </script>
