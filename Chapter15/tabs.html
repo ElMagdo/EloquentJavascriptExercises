@@ -1,5 +1,4 @@
 <!doctype html>
-
 <tab-panel>
   <div data-tabname="one">Tab one</div>
   <div data-tabname="two">Tab two</div>
@@ -8,13 +7,33 @@
 <script>
   function asTabs(node) {
     // Your code here.
-    let btn = [];
+    let btn = [], tab = [];
     let sz = node.children.length;
-    for (let i = 0; i < sz; i++) {
-      btn.push(document.createElement("button"));
-      btn[i].textContent = node.children[i].getAttribute("data-tabname");
-      node.insertBefore(btn[i], node.children[0]);
+    for (let i = sz-1; i >= 0; i--) {
+      let bt = document.createElement("button");
+      bt.textContent = node.children[sz-1].getAttribute("data-tabname");
+      btn.push(bt);
+      tab.push(node.children[sz-1]);
+      node.children[sz-1].style.display = "none";
+      node.insertBefore(bt, node.children[0]);
     }
+
+    btn[sz-1].style.background = "yellow";
+    tab[sz-1].style.display = "block";
+
+    node.addEventListener("click", event => {
+      if (event.target.nodeName == "BUTTON") {
+        for (let i = 0; i < sz; i++) {
+          if (event.target.textContent == btn[i].textContent) {
+            btn[i].style.background = "yellow";
+            tab[i].style.display = "block";
+          } else {
+            btn[i].style.background = "";
+            tab[i].style.display = "none";
+          }
+        }
+      }
+    })
   }
   asTabs(document.querySelector("tab-panel"));
 </script>
